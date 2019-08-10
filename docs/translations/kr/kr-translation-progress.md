@@ -25,7 +25,7 @@ Please refer to the official english version of the documentation for the latest
 ### [`spec`](../spec/)
 - Redacted from until completion
 
-### [`gaia`](../gaia/)
+### [`hsnhub`](../hsnhub/)
 - Synced until commit [288df6f](https://github.com/hyperspeednetwork/hsnhub/commit/288df6fe69dcef8fa95aca022039f92ba1e98c11#diff-3302fe357e01f0996ddb0f10adec85f0)
 
 ### [`intro`](../intro/)

@@ -53,7 +53,7 @@ var sumValue := externalModule.ComputeSumValue(account)
 var sumValue := externalModule.ComputeSumValue(*account)
 ```
 
-코스모스 SDK에서 이 원칙을 응용한 것을 [gaia 앱](../gaia/app/app.go)에서 확인이 가능합니다.
+코스모스 SDK에서 이 원칙을 응용한 것을 [hshhub 앱](../hsnhub/app/app.go)에서 확인이 가능합니다.
 
 ```go
 // register message routes

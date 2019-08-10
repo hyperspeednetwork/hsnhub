@@ -97,7 +97,7 @@ First, run `make tools` from the root of repo, to install the swagger-ui tool.
 
 Then, edit the `swagger.yaml` manually; it is found [here](https://github.com/hyperspeednetwork/hsnhub/blob/master/client/lcd/swagger-ui/swagger.yaml)
 
-Finally, run `make update_gaia_lite_docs` from the root of the repo.
+Finally, run `make update_hsn_lite_docs` from the root of the repo.
 
 ## Search
 
@@ -118,7 +118,7 @@ much as possible with its [counterpart in the Tendermint Core repo](https://gith
     1. Directly Edit API docs manually: `client/lcd/swagger-ui/swagger.yaml`.
     2. Edit API docs within the [Swagger Editor](https://editor.swagger.io/). Please refer to this [document](https://swagger.io/docs/specification/2-0/basic-structure/) for the correct structure in `.yaml`.
 3. Download `swagger.yaml` and replace the old `swagger.yaml` under fold `client/lcd/swagger-ui`.
-4. Compile gaiacli
+4. Compile hsncli
     ```bash
     make install
     ```

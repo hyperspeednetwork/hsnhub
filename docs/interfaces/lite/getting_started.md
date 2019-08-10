@@ -13,10 +13,10 @@ To start a REST server, we need to specify the following parameters:
 For example:
 
 ```bash
-gaiacli rest-server --chain-id=test \
+hsncli rest-server --chain-id=test \
     --laddr=tcp://localhost:1317 \
     --node tcp://localhost:26657 \
     --trust-node=false
 ```
 
-For more information about the Gaia-Lite RPC, see the [swagger documentation](https://cosmos.network/rpc/)
+For more information about the HSN-Lite RPC, see the [swagger documentation](https://cosmos.network/rpc/)

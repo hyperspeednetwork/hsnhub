@@ -9,9 +9,9 @@
 // At build time, the variables Name, Version, Commit, and BuildTags
 // can be passed as build flags as shown in the following example:
 //
-//  go build -X github.com/hyperspeednetwork/hsnhub/version.Name=gaia \
-//   -X github.com/hyperspeednetwork/hsnhub/version.ServerName=gaiad \
-//   -X github.com/hyperspeednetwork/hsnhub/version.ClientName=gaiacli \
+//  go build -X github.com/hyperspeednetwork/hsnhub/version.Name=hsnhub \
+//   -X github.com/hyperspeednetwork/hsnhub/version.ServerName=hsnd \
+//   -X github.com/hyperspeednetwork/hsnhub/version.ClientName=hsncli \
 //   -X github.com/hyperspeednetwork/hsnhub/version.Version=1.0 \
 //   -X github.com/hyperspeednetwork/hsnhub/version.Commit=f0f7b7dab7e36c20b757cebce0e8f4fc5b95de60 \
 //   -X "github.com/hyperspeednetwork/hsnhub/version.BuildTags=linux darwin amd64"

@@ -31,7 +31,7 @@ Next you will find a few useful CLI commands to interact with the Full-Node.
 To generate a new key (default secp256k1 elliptic curve):
 
 ```bash
-gaiacli keys add <your_key_name>
+hsncli keys add <your_key_name>
 ```
 
 You will be asked to create a password (at least 8 characters) for this key-pair. This will return the information listed below:
@@ -45,7 +45,7 @@ You will be asked to create a password (at least 8 characters) for this key-pair
 You can see all your available keys by typing:
 
 ```bash
-gaiacli keys list
+hsncli keys list
 ```
 
 #### Checking your balance
@@ -53,7 +53,7 @@ gaiacli keys list
 After receiving tokens to your address, you can view your account's balance by typing:
 
 ```bash
-gaiacli account <YOUR_ADDRESS>
+hsncli account <YOUR_ADDRESS>
 ```
 
 *Note: When you query an account balance with zero tokens, you will get this error: No account with address <YOUR_ADDRESS> was found in the state. This is expected! We're working on improving our error messages.*
@@ -63,7 +63,7 @@ gaiacli account <YOUR_ADDRESS>
 Here is the command to send coins via the CLI:
 
 ```bash
-gaiacli tx send <from_key_or_address> <to_address> <amount> \
+hsncli tx send <from_key_or_address> <to_address> <amount> \
     --chain-id=<name_of_testnet_chain> 
 ```
 
@@ -82,7 +82,7 @@ Flags:
 If you need to do something else, the best command you can run is:
 
 ```bash
-gaiacli 
+hsncli 
 ```
 
 It will display all the available commands. For each command, you can use the `--help` flag to get further information. 
@@ -94,7 +94,7 @@ The Rest Server acts as an intermediary between the front-end and the full-node.
 To start the Rest server: 
 
 ```bash
-gaiacli rest-server --node=<full_node_address:full_node_port>
+hsncli rest-server --node=<full_node_address:full_node_port>
 ```
 
 Flags:
@@ -132,7 +132,7 @@ you need to use the field `generate_only` in the body of `base_req`.
 
 Cosmos SDK transaction signing is a fairly simple process.
 
-Every Cosmos SDK transaction has a canonical JSON representation. The `gaiacli`
+Every Cosmos SDK transaction has a canonical JSON representation. The `hsncli`
 and Stargate REST interfaces provide canonical JSON representations of transactions
 and their "broadcast" functions will provide compact Amino (a protobuf-like wire format)
 encoding translations.

@@ -9,7 +9,7 @@
 
 - [Specifications](./spec/README.md): Specifications of modules and other parts of the Cosmos SDK. 
 - [SDK API Reference](https://godoc.org/github.com/hyperspeednetwork/hsnhub): Godocs of the Cosmos SDK.
-- [REST API spec](https://cosmos.network/rpc/): List of endpoints to interact with a `gaia` full-node through REST.
+- [REST API spec](https://cosmos.network/rpc/): List of endpoints to interact with a `hsn` full-node through REST.
 
 ## Creating a new SDK project
 
@@ -18,13 +18,13 @@ To create a new project, you can either:
 - Fork [this repo](https://github.com/cosmos/sdk-application-tutorial/). Do not forget to remove the `nameservice` module from the various files if you don't need it. 
 - Use community tools like [chainkit](https://github.com/blocklayerhq/chainkit).
 
-## Cosmos Hub 
+## HSN Hub 
 
-The Cosmos Hub (`gaia`) docs have moved [here](https://github.com/cosmos/gaia/tree/master/docs).
+The HSN Hub (`hsnhub`) docs have moved [here](https://github.com/hyperspeednetwork/hsnhub/tree/master/docs).
 
 ## Languages
 
-The Cosmos-SDK is currently written in [Golang](https://golang.org/), though the
+The hsnhub is currently written in [Golang](https://golang.org/), though the
 framework could be implemented similarly in other languages.
 Contact us for information about funding an implementation in another language.
 

@@ -52,7 +52,7 @@ Blockchain Node |  |           Consensus           |  |
                 |  |                               |  |
                 v  +-------------------------------+  v
 ```
-The blockchain full-node presents itself as a binary, generally suffixed by `-d` for "daemon" (e.g. `appd` for `app` or `gaiad` for `gaia`). This binary is built by running a simple `main.go` function placed in `cmd/appd/`. This operation usually happens through the [Makefile](#dependencies-and-makefile).
+The blockchain full-node presents itself as a binary, generally suffixed by `-d` for "daemon" (e.g. `appd` for `app` or `hsnd` for `hsn`). This binary is built by running a simple `main.go` function placed in `cmd/appd/`. This operation usually happens through the [Makefile](#dependencies-and-makefile).
 
 To learn more about the `main.go` function, [click here](./node.md#main-function).
 
@@ -80,7 +80,7 @@ The first thing defined in `app.go` is the `type` of the application. It is gene
 - **A reference to a `codec`.** The Cosmos SDK gives developers the freedom to choose the encoding framework for their application. The application's `codec` is used to serialize and deserialize data structures in order to store them, as stores can only persist `[]bytes`. The `codec` must be deterministic. The default codec is [amino](./amino.md).
 - **A reference to a [module manager](./modules.md#module-manager)**. The module manager is an object that contains a list of the application's module. It facilitates operations related to these modules, like registering [`routes`](./baseapp.md#routing), [query routes](#./baseapp.md#query-routing) or setting the order of execution between modules for various functions like [`InitChainer`](#initchainer), [`BeginBlocker` and `EndBlocker`](#beginblocker-and-endblocker).
 
-You can see an example of application type definition [here](https://github.com/cosmos/gaia/blob/master/app/app.go#L73-L107).
+You can see an example of application type definition [here](https://github.com/hyperspeednetwork/hsnhub/blob/master/app/app.go#L73-L107).
 
 ### Constructor Function
 
@@ -101,7 +101,7 @@ This function constructs a new application of the type defined above. It is call
 
 Note that this function only creates an instance of the app, while the actual state is either carried over from the `~/.appd/data` folder if the node is restarted, or generated from the genesis file if the node is started for the first time. 
 
-You can see an example of application constructor [here](https://github.com/cosmos/gaia/blob/master/app/app.go#L110-L222).
+You can see an example of application constructor [here](https://github.com/hyperspeednetwork/hsnhub/blob/master/app/app.go#L110-L222).
 
 ### InitChainer
 
@@ -109,7 +109,7 @@ The `InitChainer` is a function that initializes the state of the application fr
 
 In general, the `InitChainer` is mostly composed of the `InitGenesis` function of each of the application's modules. This is done by calling the `InitGenesis` function of the module manager, which in turn will call the `InitGenesis` function of each of the modules it contains. Note that the order in which the modules' `InitGenesis` functions must be called has to be set in the module manager using the `SetOrderInitGenesis` method. This is done in the [application's constructor](#application-constructor), and the `SetOrderInitGenesis` has to be called before the `SetInitChainer`. 
 
-You can see an example of an `InitChainer` [here](https://github.com/cosmos/gaia/blob/master/app/app.go#L235-L239).
+You can see an example of an `InitChainer` [here](https://github.com/hyperspeednetwork/hsnhub/blob/master/app/app.go#L235-L239).
 
 ### BeginBlocker and EndBlocker
 
@@ -119,7 +119,7 @@ In general, the `BeginBlocker` and `EndBlocker` functions are mostly composed of
 
 As a sidenote, it is important to remember that application-specific blockchains are deterministic. Developers must be careful not to introduce non-determinism in `BeginBlocker` or `EndBlocker`, and must also be careful not to make them too computationally expensive, as [gas](./accounts-fees-gas.md/gas) does not constrain the cost of `BeginBlocker` and `EndBlocker` execution. 
 
-You can see an example of `BeginBlocker` and `EndBlocker` functions [here](https://github.com/cosmos/gaia/blob/master/app/app.go#L224-L232).
+You can see an example of `BeginBlocker` and `EndBlocker` functions [here](https://github.com/hyperspeednetwork/hsnhub/blob/master/app/app.go#L224-L232).
 
 ### Register Codec
 
@@ -127,7 +127,7 @@ The `MakeCodec` function is the last important function of the `app.go` file. Th
 
 To register the application's modules, the `MakeCodec` function calls `RegisterCodec` on `ModuleBasics`. `ModuleBasics` is a [basic manager](./modules.md#basic-manager) which lists all of the application's modules. It is instanciated in the `init()` function, and only serves to easily register non-dependant elements of application's modules (such as codec). To learn more about the basic module manager, click [here](./modules.md#basic-manager).
 
-You can see an example of a `MakeCodec` [here](https://github.com/cosmos/gaia/blob/master/app/app.go#L64-L70)
+You can see an example of a `MakeCodec` [here](https://github.com/hyperspeednetwork/hsnhub/blob/master/app/app.go#L64-L70)
 
 ## Modules
 

@@ -16,11 +16,11 @@
 
 ###安装和配置
 
-我们将描述为 Cosmos Hub 运行和交互全节点的步骤。对于其他基于 SDK 的区块链，该过程是类似的。
+我们将描述为 HSN Hub 运行和交互全节点的步骤。对于其他基于 SDK 的区块链，该过程是类似的。
 
-首先，您需要[安装软件](../cosmos-hub/installation.md).
+首先，您需要[安装软件](../hsnhub/installation.md).
 
-然后，您可以开始[运行全节点](../cosmos-hub/join-testnet.md).
+然后，您可以开始[运行全节点](../hsnhub/join-testnet.md).
 
 ### 命令行界面（CLI）
 
@@ -31,7 +31,7 @@
 生成新秘钥（默认使用 secp256k1椭圆曲线算法）：
 
 ```bash
-gaiacli keys add <your_key_name>
+hsncli keys add <your_key_name>
 ```
 
 系统将要求您为此密钥对输入密码（至少8个字符）。该命令返回4个信息：
@@ -45,7 +45,7 @@ gaiacli keys add <your_key_name>
 您可以输入以下命令查看所有可用密钥：
 
 ```bash
-gaiacli keys list
+hsncli keys list
 ```
 
 #### 检查您的余额
@@ -53,7 +53,7 @@ gaiacli keys list
 收到代币到您的地址后，您可以输入以下命令查看帐户的余额：
 
 ```bash
-gaiacli account <YOUR_ADDRESS>
+hsncli account <YOUR_ADDRESS>
 ```
 
 *注意：当您查询没有 token 帐户的余额时，您将得到以下错误：找不到地址为<YOUR_ADDRESS>的帐户。这是预料之中的！我们正在努力改进我们的错误提示信息。*
@@ -63,7 +63,7 @@ gaiacli account <YOUR_ADDRESS>
 以下是通过 CLI 发送代币的命令：
 
 ```bash
-gaiacli tx send <from_key_or_address> <to_address> <amount> \
+hsncli tx send <from_key_or_address> <to_address> <amount> \
     --chain-id=<name_of_testnet_chain> 
 ```
 
@@ -81,7 +81,7 @@ gaiacli tx send <from_key_or_address> <to_address> <amount> \
 如果您需要进行其他操作，最合适的命令是：
 
 ```bash
-gaiacli 
+hsncli 
 ```
 
 它将显示所有可用命令。对于每个命令，您可以使用`--help`标识来获取更多信息。 
@@ -93,7 +93,7 @@ Rest 服务器充当前端点和全节点之间的媒介。 Rest 服务器不必
 要启动 Rest 服务器：
 
 ```bash
-gaiacli rest-server --node=<full_node_address:full_node_port>
+hsncli rest-server --node=<full_node_address:full_node_port>
 ```
 
 Flags:
@@ -122,7 +122,7 @@ API 针对每种类别的端点归纳为 ICS 标准。例如，[ICS20](https://c
 
 Cosmos SDK 签名是一个相当简单的过程。
 
-每个 Cosmos SDK 交易都有一个规范的 JSON 描述。 `gaiacli`和 REST 接口为交易提供规范的 JSON 描述，“广播”功能将提供紧凑的 Amino（类似 protobuf 的格式）编码转换。
+每个 Cosmos SDK 交易都有一个规范的 JSON 描述。 `hsncli`和 REST 接口为交易提供规范的 JSON 描述，“广播”功能将提供紧凑的 Amino（类似 protobuf 的格式）编码转换。
 
 签名消息时的注意事项：
 

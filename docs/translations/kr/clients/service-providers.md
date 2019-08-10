@@ -31,7 +31,7 @@
 새로운 키를 생성하기 위해서는 (기본적으로 secp256k1 엘립틱 커브 기반):
 
 ```bash
-gaiacli keys add <your_key_name>
+hsncli keys add <your_key_name>
 ```
 
 이후 해당 키페어에 대한 비밀번호(최소 8글지)를 생성할 것을 요청받습니다. 커맨드는 다음 4개 정보를 리턴합니다:
@@ -45,7 +45,7 @@ gaiacli keys add <your_key_name>
 다음 명령어를 통해서 사용 가능한 모든 키를 확인할 수 있습니다:
 
 ```bash
-gaiacli keys list
+hsncli keys list
 ```
 
 #### 잔고 조회하기
@@ -53,7 +53,7 @@ gaiacli keys list
 해당 주소로 토큰을 받으셨다면 다음 명령어로 계정 잔고를 확인하실 수 있습니다:
 
 ```bash
-gaiacli account <YOUR_ADDRESS>
+hsncli account <YOUR_ADDRESS>
 ```
 
 *참고: 토큰이 0인 계정을 조회하실 경우 다음과 같은 에러 메시지가 표시됩니다: 'No account with address <YOUR_ADDRESS> was found in the state'. 해당 에러 메시지는 정상이며 앞으로 에러 메시지 개선이 들어갈 예정입니다.*
@@ -63,7 +63,7 @@ gaiacli account <YOUR_ADDRESS>
 다음은 CLI를 이용해 코인을 전송하는 명령어입니다:
 
 ```bash
-gaiacli send --amount=10faucetToken --chain-id=<name_of_testnet_chain> --from=<key_name> --to=<destination_address>
+hsncli send --amount=10faucetToken --chain-id=<name_of_testnet_chain> --from=<key_name> --to=<destination_address>
 ```
 
 플래그:
@@ -77,7 +77,7 @@ gaiacli send --amount=10faucetToken --chain-id=<name_of_testnet_chain> --from=<k
 이 외의 기능을 이용하시려면 다음 명령어를 사용하세요:
 
 ```bash
-gaiacli 
+hsncli 
 ```
 
 사용 가능한 모든 명령어를 표기하며, 각 명령어 별로 `--help` 플래그를 사용하여 더 자세한 정보를 확인하실 수 있습니다.
@@ -89,7 +89,7 @@ REST 서버는 풀노드와 프론트엔드 사이의 중계역할을 합니다.
 REST 서버를 시작하시려면: 
 
 ```bash
-gaiacli advanced rest-server --node=<full_node_address:full_node_port>
+hsncli advanced rest-server --node=<full_node_address:full_node_port>
 ```
 
 플래그:

@@ -13,11 +13,11 @@
 示例：
 
 ```bash
-gaiacli rest-server --chain-id=test \
+hsncli rest-server --chain-id=test \
     --laddr=tcp://localhost:1317 \
     --node tcp://localhost:26657 \
     --trust-node=false
 ```
 
-有关Gaia-Lite RPC的更多信息，请参阅 [swagger documentation](https://cosmos.network/rpc/)
+有关HSN-Lite RPC的更多信息，请参阅 [swagger documentation](https://cosmos.network/rpc/)
 

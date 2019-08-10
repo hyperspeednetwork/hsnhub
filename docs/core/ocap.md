@@ -77,7 +77,7 @@ var sumValue := externalModule.ComputeSumValue(*account)
 ```
 
 In the Cosmos SDK, you can see the application of this principle in the
-[gaia app](../gaia/app/app.go).
+[hsn app](../hsnhub/app/app.go).
 
 ```go
 // register message routes

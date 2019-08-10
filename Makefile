@@ -92,8 +92,8 @@ test_sim_nondeterminism:
 
 test_sim_custom_genesis_fast:
 	@echo "Running custom genesis simulation..."
-	@echo "By default, ${HOME}/.gaiad/config/genesis.json will be used."
-	@go test -mod=readonly $(SIMAPP) -run TestFullAppSimulation -Genesis=${HOME}/.gaiad/config/genesis.json \
+	@echo "By default, ${HOME}/.hsnd/config/genesis.json will be used."
+	@go test -mod=readonly $(SIMAPP) -run TestFullAppSimulation -Genesis=${HOME}/.hsnd/config/genesis.json \
 		-Enabled=true -NumBlocks=100 -BlockSize=200 -Commit=true -Seed=99 -Period=5 -v -timeout 24h
 
 test_sim_import_export: runsim
@@ -106,8 +106,8 @@ test_sim_after_import: runsim
 
 test_sim_custom_genesis_multi_seed: runsim
 	@echo "Running multi-seed custom genesis simulation..."
-	@echo "By default, ${HOME}/.gaiad/config/genesis.json will be used."
-	$(BINDIR)/runsim -g ${HOME}/.gaiad/config/genesis.json $(SIMAPP) 400 5 TestFullAppSimulation
+	@echo "By default, ${HOME}/.hsnd/config/genesis.json will be used."
+	$(BINDIR)/runsim -g ${HOME}/.hsnd/config/genesis.json $(SIMAPP) 400 5 TestFullAppSimulation
 
 test_sim_multi_seed_long: runsim
 	@echo "Running multi-seed application simulation. This may take awhile!"
