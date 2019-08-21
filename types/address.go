@@ -33,12 +33,12 @@ const (
 	// Bech32PrefixAccAddr defines the Bech32 prefix of an account's address
 	Bech32MainPrefix = "hsn"
 
-	// Atom in https://github.com/satoshilabs/slips/blob/master/slip-0044.md
-	CoinType = 118
+	// HSN in https://github.com/satoshilabs/slips/blob/master/slip-0044.md
+	CoinType = 393
 
 	// BIP44Prefix is the parts of the BIP44 HD path that are fixed by
 	// what we used during the fundraiser.
-	FullFundraiserPath = "44'/118'/0'/0/0"
+	FullFundraiserPath = "44'/393'/0'/0/0"
 
 	// PrefixAccount is the prefix for account keys
 	PrefixAccount = "acc"
