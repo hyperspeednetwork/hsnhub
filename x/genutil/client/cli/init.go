@@ -105,12 +105,14 @@ func InitCmd(ctx *server.Context, cdc *codec.Codec, mbm module.BasicManager,
 			genDoc.ChainID = chainID
 			genDoc.Validators = nil
 			genDoc.AppState = appState
+			//输出创世文件
 			if err = genutil.ExportGenesisFile(genDoc, genFile); err != nil {
 				return err
 			}
 
 			toPrint := newPrintInfo(config.Moniker, chainID, nodeID, "", appState)
 
+			//输出配置文件
 			cfg.WriteConfigFile(filepath.Join(config.RootDir, "config", "config.toml"), config)
 			return displayInfo(cdc, toPrint)
 		},
