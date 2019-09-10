@@ -39,7 +39,7 @@ var (
 
 	DelegatorWithdrawAddrPrefix          = []byte{0x03} // key for delegator withdraw address
 	DelegatorStartingInfoPrefix          = []byte{0x04} // key for delegator starting info
-	ValidatorHistoricalRewardsPrefix     = []byte{0x05} // key for historical validators rewards / stake
+	ValidatorHistoricalRewardsPrefix     = []byte{0x05} // key for historical validators rewards / hsn
 	ValidatorCurrentRewardsPrefix        = []byte{0x06} // key for current validator rewards
 	ValidatorAccumulatedCommissionPrefix = []byte{0x07} // key for accumulated validator commission
 	ValidatorSlashEventPrefix            = []byte{0x08} // key for validator slash fraction

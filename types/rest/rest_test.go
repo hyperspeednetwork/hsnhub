@@ -18,13 +18,13 @@ import (
 	"github.com/hyperspeednetwork/hsnhub/types"
 )
 
-type mockResponseWriter struct{}
+// type mockResponseWriter struct{}
 
 func TestBaseReqValidateBasic(t *testing.T) {
-	fromAddr := "cosmos1cq0sxam6x4l0sv9yz3a2vlqhdhvt2k6jtgcse0"
-	tenstakes, err := types.ParseCoins("10stake")
+	fromAddr := "hsn1j4yux0ytemqjmcd6z7dej7ermuw2hp9mgwu04a"
+	tenstakes, err := types.ParseCoins("10hsn")
 	require.NoError(t, err)
-	onestake, err := types.ParseDecCoins("1.0stake")
+	onestake, err := types.ParseDecCoins("1.0hsn")
 	require.NoError(t, err)
 
 	req1 := NewBaseReq(

@@ -56,7 +56,9 @@ func setupBaseApp(t *testing.T, options ...func(*BaseApp)) *BaseApp {
 
 	// no stores are mounted
 	require.Panics(t, func() {
-		app.LoadLatestVersion(capKey1)
+		if err := app.LoadLatestVersion(capKey1); err != nil {
+			t.Errorf("laod latest version error by %s", err.Error())
+		}
 	})
 
 	app.MountStores(capKey1, capKey2)
@@ -417,7 +419,7 @@ func TestBaseAppOptionSeal(t *testing.T) {
 }
 
 func TestSetMinGasPrices(t *testing.T) {
-	minGasPrices := sdk.DecCoins{sdk.NewInt64DecCoin("stake", 5000)}
+	minGasPrices := sdk.DecCoins{sdk.NewInt64DecCoin("hsn", 5000)}
 	app := newBaseApp(t.Name(), SetMinGasPrices(minGasPrices.String()))
 	require.Equal(t, minGasPrices, app.minGasPrices)
 }
@@ -626,9 +628,9 @@ func handlerMsgCounter(t *testing.T, capKey *sdk.KVStoreKey, deliverKey []byte) 
 	}
 }
 
-func i2b(i int64) []byte {
-	return []byte{byte(i)}
-}
+// func i2b(i int64) []byte {
+// 	return []byte{byte(i)}
+// }
 
 func getIntFromStore(store sdk.KVStore, key []byte) int64 {
 	bz := store.Get(key)

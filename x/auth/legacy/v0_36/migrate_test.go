@@ -16,7 +16,7 @@ func TestMigrate(t *testing.T) {
 			CollectedFees: types.Coins{
 				{
 					Amount: types.NewInt(10),
-					Denom:  "stake",
+					Denom:  "hsn",
 				},
 			},
 			Params: v034auth.Params{}, // forwarded structure: filling and checking will be testing a no-op

@@ -216,13 +216,13 @@ Where proposal.json contains:
   "recipient": "cosmos1s5afhd6gxevu37mkqcvvsj8qeylhn0rz46zdlq",
   "amount": [
     {
-      "denom": "stake",
+      "denom": "hsn",
       "amount": "10000"
     }
   ],
   "deposit": [
     {
-      "denom": "stake",
+      "denom": "hsn",
       "amount": "10000"
     }
   ]

@@ -54,21 +54,21 @@ func getQueriedParams(t *testing.T, ctx sdk.Context, cdc *codec.Codec, querier s
 	return depositParams, votingParams, tallyParams
 }
 
-func getQueriedProposal(t *testing.T, ctx sdk.Context, cdc *codec.Codec, querier sdk.Querier, proposalID uint64) types.Proposal {
-	query := abci.RequestQuery{
-		Path: strings.Join([]string{custom, types.QuerierRoute, types.QueryProposal}, "/"),
-		Data: cdc.MustMarshalJSON(types.NewQueryProposalParams(proposalID)),
-	}
+// func getQueriedProposal(t *testing.T, ctx sdk.Context, cdc *codec.Codec, querier sdk.Querier, proposalID uint64) types.Proposal {
+// 	query := abci.RequestQuery{
+// 		Path: strings.Join([]string{custom, types.QuerierRoute, types.QueryProposal}, "/"),
+// 		Data: cdc.MustMarshalJSON(types.NewQueryProposalParams(proposalID)),
+// 	}
 
-	bz, err := querier(ctx, []string{types.QueryProposal}, query)
-	require.NoError(t, err)
-	require.NotNil(t, bz)
+// 	bz, err := querier(ctx, []string{types.QueryProposal}, query)
+// 	require.NoError(t, err)
+// 	require.NotNil(t, bz)
 
-	var proposal types.Proposal
-	require.NoError(t, cdc.UnmarshalJSON(bz, proposal))
+// 	var proposal types.Proposal
+// 	require.NoError(t, cdc.UnmarshalJSON(bz, proposal))
 
-	return proposal
-}
+// 	return proposal
+// }
 
 func getQueriedProposals(t *testing.T, ctx sdk.Context, cdc *codec.Codec, querier sdk.Querier, depositor, voter sdk.AccAddress, status types.ProposalStatus, limit uint64) []types.Proposal {
 	query := abci.RequestQuery{
@@ -150,21 +150,21 @@ func getQueriedVotes(t *testing.T, ctx sdk.Context, cdc *codec.Codec, querier sd
 	return votes
 }
 
-func getQueriedTally(t *testing.T, ctx sdk.Context, cdc *codec.Codec, querier sdk.Querier, proposalID uint64) types.TallyResult {
-	query := abci.RequestQuery{
-		Path: strings.Join([]string{custom, types.QuerierRoute, types.QueryTally}, "/"),
-		Data: cdc.MustMarshalJSON(types.NewQueryProposalParams(proposalID)),
-	}
+// func getQueriedTally(t *testing.T, ctx sdk.Context, cdc *codec.Codec, querier sdk.Querier, proposalID uint64) types.TallyResult {
+// 	query := abci.RequestQuery{
+// 		Path: strings.Join([]string{custom, types.QuerierRoute, types.QueryTally}, "/"),
+// 		Data: cdc.MustMarshalJSON(types.NewQueryProposalParams(proposalID)),
+// 	}
 
-	bz, err := querier(ctx, []string{types.QueryTally}, query)
-	require.NoError(t, err)
-	require.NotNil(t, bz)
+// 	bz, err := querier(ctx, []string{types.QueryTally}, query)
+// 	require.NoError(t, err)
+// 	require.NotNil(t, bz)
 
-	var tally types.TallyResult
-	require.NoError(t, cdc.UnmarshalJSON(bz, &tally))
+// 	var tally types.TallyResult
+// 	require.NoError(t, cdc.UnmarshalJSON(bz, &tally))
 
-	return tally
-}
+// 	return tally
+// }
 
 func TestQueries(t *testing.T) {
 	ctx, _, keeper, _, _ := createTestInput(t, false, 1000)

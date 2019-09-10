@@ -21,7 +21,7 @@ func TestPrepareFlagsForTxCreateValidator(t *testing.T) {
 	logger := log.NewNopLogger()
 	ctx := server.NewContext(config, logger)
 
-	valPubKey, _ := sdk.GetConsPubKeyBech32("cosmosvalconspub1zcjduepq7jsrkl9fgqk0wj3ahmfr8pgxj6vakj2wzn656s8pehh0zhv2w5as5gd80a")
+	valPubKey, _ := sdk.GetConsPubKeyBech32("hsnvalconspub1zcjduepq2hfe9jj2z4j3c4wp3dqlyneqky63yqnrkvganmahshutamtwm9nsr38h5l")
 
 	type args struct {
 		config    *cfg.Config
@@ -72,7 +72,7 @@ func TestPrepareFlagsForTxCreateValidator(t *testing.T) {
 	}
 
 	// Override default params
-	params := extraParams{"5stake", "1.0", "1.0", "1.0", "1.0"}
+	params := extraParams{"5hsn", "1.0", "1.0", "1.0", "1.0"}
 	viper.Set(FlagAmount, params.amount)
 	viper.Set(FlagCommissionRate, params.commissionRate)
 	viper.Set(FlagCommissionMaxRate, params.commissionMaxRate)

@@ -3,36 +3,36 @@
 PACKAGES_SIMTEST=$(shell go list ./... | grep '/simulation')
 VERSION := $(shell echo $(shell git describe --tags) | sed 's/^v//')
 COMMIT := $(shell git log -1 --format='%H')
-LEDGER_ENABLED ?= true
+# LEDGER_ENABLED ?= true
 SDK_PACK := $(shell go list -m github.com/hyperspeednetwork/hsnhub | sed  's/ /\@/g')
 
 export GO111MODULE = on
 
-# process build tags
+# # process build tags
 
-build_tags = netgo
-ifeq ($(LEDGER_ENABLED),true)
-  ifeq ($(OS),Windows_NT)
-    GCCEXE = $(shell where gcc.exe 2> NUL)
-    ifeq ($(GCCEXE),)
-      $(error gcc.exe not installed for ledger support, please install or set LEDGER_ENABLED=false)
-    else
-      build_tags += ledger
-    endif
-  else
-    UNAME_S = $(shell uname -s)
-    ifeq ($(UNAME_S),OpenBSD)
-      $(warning OpenBSD detected, disabling ledger support (https://github.com/cosmos/cosmos-sdk/issues/1988))
-    else
-      GCC = $(shell command -v gcc 2> /dev/null)
-      ifeq ($(GCC),)
-        $(error gcc not installed for ledger support, please install or set LEDGER_ENABLED=false)
-      else
-        build_tags += ledger
-      endif
-    endif
-  endif
-endif
+# build_tags = netgo
+# ifeq ($(LEDGER_ENABLED),true)
+#   ifeq ($(OS),Windows_NT)
+#     GCCEXE = $(shell where gcc.exe 2> NUL)
+#     ifeq ($(GCCEXE),)
+#       $(error gcc.exe not installed for ledger support, please install or set LEDGER_ENABLED=false)
+#     else
+#       build_tags += ledger
+#     endif
+#   else
+#     UNAME_S = $(shell uname -s)
+#     ifeq ($(UNAME_S),OpenBSD)
+#       $(warning OpenBSD detected, disabling ledger support (https://github.com/cosmos/cosmos-sdk/issues/1988))
+#     else
+#       GCC = $(shell command -v gcc 2> /dev/null)
+#       ifeq ($(GCC),)
+#         $(error gcc not installed for ledger support, please install or set LEDGER_ENABLED=false)
+#       else
+#         build_tags += ledger
+#       endif
+#     endif
+#   endif
+# endif
 
 ifeq ($(WITH_CLEVELDB),yes)
   build_tags += gcc
@@ -77,7 +77,7 @@ else
 endif
 
 build-linux: go.sum
-	LEDGER_ENABLED=false GOOS=linux GOARCH=amd64 $(MAKE) build
+	GOOS=linux GOARCH=amd64 $(MAKE) build
 
 build-contract-tests-hooks:
 ifeq ($(OS),Windows_NT)
@@ -86,7 +86,7 @@ else
 	go build -mod=readonly $(BUILD_FLAGS) -o build/contract_tests ./cmd/contract_tests
 endif
 
-install: go.sum check-ledger
+install: go.sum
 	go install -mod=readonly $(BUILD_FLAGS) ./cmd/hsnd
 	go install -mod=readonly $(BUILD_FLAGS) ./cmd/hsncli
 
@@ -121,24 +121,22 @@ distclean: clean
 ### Testing
 
 
-check: check-unit check-build
+check: check-units
 check-all: check check-race check-cover
 
-check-unit:
-	@VERSION=$(VERSION) go test -mod=readonly -tags='ledger test_ledger_mock' ./...
+check-units:
+	@VERSION=$(VERSION) go test -mod=readonly  ./...
 
 check-race:
-	@VERSION=$(VERSION) go test -mod=readonly -race -tags='ledger test_ledger_mock' ./...
+	@VERSION=$(VERSION) go test -mod=readonly -race  ./...
 
 check-cover:
-	@go test -mod=readonly -timeout 30m -race -coverprofile=coverage.txt -covermode=atomic -tags='ledger test_ledger_mock' ./...
+	@go test -mod=readonly -timeout 30m -race -coverprofile=coverage.txt -covermode=atomic ./...
 
-check-build: build
-	@go test -mod=readonly -p 4 `go list ./cli_test/...` -tags=cli_test -v
 
 
 lint: golangci-lint
-	golangci-lint run
+	golangci-lint run --concurrency 2
 	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" | xargs gofmt -d -s
 	go mod verify
 

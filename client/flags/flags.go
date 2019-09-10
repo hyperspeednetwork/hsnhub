@@ -75,7 +75,6 @@ func GetCommands(cmds ...*cobra.Command) []*cobra.Command {
 		viper.BindPFlag(FlagTrustNode, c.Flags().Lookup(FlagTrustNode))
 		viper.BindPFlag(FlagUseLedger, c.Flags().Lookup(FlagUseLedger))
 		viper.BindPFlag(FlagNode, c.Flags().Lookup(FlagNode))
-
 		c.MarkFlagRequired(FlagChainID)
 	}
 	return cmds

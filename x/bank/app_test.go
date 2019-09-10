@@ -44,7 +44,7 @@ var (
 	coins     = sdk.Coins{sdk.NewInt64Coin("foocoin", 10)}
 	halfCoins = sdk.Coins{sdk.NewInt64Coin("foocoin", 5)}
 	manyCoins = sdk.Coins{sdk.NewInt64Coin("foocoin", 1), sdk.NewInt64Coin("barcoin", 1)}
-	freeFee   = auth.NewStdFee(100000, sdk.Coins{sdk.NewInt64Coin("foocoin", 0)})
+	// freeFee   = auth.NewStdFee(100000, sdk.Coins{sdk.NewInt64Coin("foocoin", 0)})
 
 	sendMsg1 = types.NewMsgSend(addr1, addr2, coins)
 	sendMsg2 = types.NewMsgSend(addr1, moduleAccAddr, coins)
@@ -78,14 +78,14 @@ var (
 			types.NewOutput(addr1, coins),
 		},
 	}
-	multiSendMsg5 = types.MsgMultiSend{
-		Inputs: []types.Input{
-			types.NewInput(addr1, manyCoins),
-		},
-		Outputs: []types.Output{
-			types.NewOutput(addr2, manyCoins),
-		},
-	}
+	// multiSendMsg5 = types.MsgMultiSend{
+	// 	Inputs: []types.Input{
+	// 		types.NewInput(addr1, manyCoins),
+	// 	},
+	// 	Outputs: []types.Output{
+	// 		types.NewOutput(addr2, manyCoins),
+	// 	},
+	// }
 	multiSendMsg6 = types.MsgMultiSend{
 		Inputs: []types.Input{
 			types.NewInput(addr1, coins),

@@ -65,7 +65,7 @@ func ValidateAccountInGenesis(appGenesisState map[string]json.RawMessage,
 				// Ensure account contains enough funds of default bond denom
 				if coins.AmountOf(bondDenom).GT(accCoins.AmountOf(bondDenom)) {
 					err = fmt.Errorf(
-						"account %v is in genesis, but it only has %v%v available to stake, not %v%v",
+						"account %v is in genesis, but it only has %v%v available to hsn, not %v%v",
 						key.String(), accCoins.AmountOf(bondDenom), bondDenom, coins.AmountOf(bondDenom), bondDenom,
 					)
 					return true

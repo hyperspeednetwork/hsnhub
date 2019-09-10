@@ -29,22 +29,22 @@ func TestWithdrawValidatorCommission(t *testing.T) {
 	ctx, ak, keeper, _, _ := CreateTestInputDefault(t, false, 1000)
 
 	valCommission := sdk.DecCoins{
-		sdk.NewDecCoinFromDec("mytoken", sdk.NewDec(5).Quo(sdk.NewDec(4))),
-		sdk.NewDecCoinFromDec("stake", sdk.NewDec(3).Quo(sdk.NewDec(2))),
+		sdk.NewDecCoinFromDec("hsn", sdk.NewDec(5).Quo(sdk.NewDec(4))),
+		sdk.NewDecCoinFromDec("mytoken", sdk.NewDec(3).Quo(sdk.NewDec(2))),
 	}
 
 	// set module account coins
 	distrAcc := keeper.GetDistributionAccount(ctx)
 	distrAcc.SetCoins(sdk.NewCoins(
 		sdk.NewCoin("mytoken", sdk.NewInt(2)),
-		sdk.NewCoin("stake", sdk.NewInt(2)),
+		sdk.NewCoin("hsn", sdk.NewInt(2)),
 	))
 	keeper.supplyKeeper.SetModuleAccount(ctx, distrAcc)
 
 	// check initial balance
 	balance := ak.GetAccount(ctx, sdk.AccAddress(valOpAddr3)).GetCoins()
 	expTokens := sdk.TokensFromConsensusPower(1000)
-	expCoins := sdk.NewCoins(sdk.NewCoin("stake", expTokens))
+	expCoins := sdk.NewCoins(sdk.NewCoin("hsn", expTokens))
 	require.Equal(t, expCoins, balance)
 
 	// set outstanding rewards
@@ -60,14 +60,14 @@ func TestWithdrawValidatorCommission(t *testing.T) {
 	balance = ak.GetAccount(ctx, sdk.AccAddress(valOpAddr3)).GetCoins()
 	require.Equal(t, sdk.NewCoins(
 		sdk.NewCoin("mytoken", sdk.NewInt(1)),
-		sdk.NewCoin("stake", expTokens.AddRaw(1)),
+		sdk.NewCoin("hsn", expTokens.AddRaw(1)),
 	), balance)
 
 	// check remainder
 	remainder := keeper.GetValidatorAccumulatedCommission(ctx, valOpAddr3)
 	require.Equal(t, sdk.DecCoins{
-		sdk.NewDecCoinFromDec("mytoken", sdk.NewDec(1).Quo(sdk.NewDec(4))),
-		sdk.NewDecCoinFromDec("stake", sdk.NewDec(1).Quo(sdk.NewDec(2))),
+		sdk.NewDecCoinFromDec("hsn", sdk.NewDec(1).Quo(sdk.NewDec(4))),
+		sdk.NewDecCoinFromDec("mytoken", sdk.NewDec(1).Quo(sdk.NewDec(2))),
 	}, remainder)
 
 	require.True(t, true)
@@ -77,8 +77,8 @@ func TestGetTotalRewards(t *testing.T) {
 	ctx, _, keeper, _, _ := CreateTestInputDefault(t, false, 1000)
 
 	valCommission := sdk.DecCoins{
-		sdk.NewDecCoinFromDec("mytoken", sdk.NewDec(5).Quo(sdk.NewDec(4))),
-		sdk.NewDecCoinFromDec("stake", sdk.NewDec(3).Quo(sdk.NewDec(2))),
+		sdk.NewDecCoinFromDec("hsn", sdk.NewDec(5).Quo(sdk.NewDec(4))),
+		sdk.NewDecCoinFromDec("mytoken", sdk.NewDec(3).Quo(sdk.NewDec(2))),
 	}
 
 	keeper.SetValidatorOutstandingRewards(ctx, valOpAddr1, valCommission)
