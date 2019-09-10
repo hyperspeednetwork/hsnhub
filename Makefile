@@ -135,8 +135,7 @@ check-cover:
 
 
 
-lint: golangci-lint
-	golangci-lint run --concurrency 2
+lint: 
 	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" | xargs gofmt -d -s
 	go mod verify
 

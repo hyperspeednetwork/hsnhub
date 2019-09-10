@@ -78,14 +78,14 @@ var (
 			types.NewOutput(addr1, coins),
 		},
 	}
-	// multiSendMsg5 = types.MsgMultiSend{
-	// 	Inputs: []types.Input{
-	// 		types.NewInput(addr1, manyCoins),
-	// 	},
-	// 	Outputs: []types.Output{
-	// 		types.NewOutput(addr2, manyCoins),
-	// 	},
-	// }
+	multiSendMsg5 = types.MsgMultiSend{
+		Inputs: []types.Input{
+			types.NewInput(addr1, manyCoins),
+		},
+		Outputs: []types.Output{
+			types.NewOutput(addr2, manyCoins),
+		},
+	}
 	multiSendMsg6 = types.MsgMultiSend{
 		Inputs: []types.Input{
 			types.NewInput(addr1, coins),
