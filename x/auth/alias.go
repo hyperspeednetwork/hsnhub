@@ -14,24 +14,25 @@ import (
 )
 
 const (
-	ModuleName                    = types.ModuleName
-	StoreKey                      = types.StoreKey
-	FeeCollectorName              = types.FeeCollectorName
-	QuerierRoute                  = types.QuerierRoute
-	DefaultParamspace             = types.DefaultParamspace
+	ModuleName = types.ModuleName
+	StoreKey = types.StoreKey
+	FeeCollectorName = types.FeeCollectorName
+	QuerierRoute = types.QuerierRoute
+	DefaultParamspace = types.DefaultParamspace
+	// Default parameter values
 	DefaultMaxMemoCharacters      = types.DefaultMaxMemoCharacters
 	DefaultTxSigLimit             = types.DefaultTxSigLimit
 	DefaultTxSizeCostPerByte      = types.DefaultTxSizeCostPerByte
 	DefaultSigVerifyCostED25519   = types.DefaultSigVerifyCostED25519
 	DefaultSigVerifyCostSecp256k1 = types.DefaultSigVerifyCostSecp256k1
-	QueryAccount                  = types.QueryAccount
+	QueryAccount = types.QueryAccount
 )
 
 var (
 	// functions aliases
-	NewAnteHandler                    = ante.NewAnteHandler
-	GetSignerAcc                      = ante.GetSignerAcc
-	ValidateSigCount                  = ante.ValidateSigCount
+	NewAnteHandler                    = ante.NewAnteHandler   //前缀处理器
+	GetSignerAcc                      = ante.GetSignerAcc     //获取给定地址的账户
+	ValidateSigCount                  = ante.ValidateSigCount //最大的签名积累总数积累
 	ValidateMemo                      = ante.ValidateMemo
 	ProcessPubKey                     = ante.ProcessPubKey
 	DefaultSigVerificationGasConsumer = ante.DefaultSigVerificationGasConsumer

@@ -107,7 +107,7 @@ func GenTxCmd(ctx *server.Context, cdc *codec.Codec, mbm module.BasicManager, sm
 			viper.Set(client.FlagHome, viper.GetString(flagClientHome))
 			smbh.PrepareFlagsForTxCreateValidator(config, nodeID, genDoc.ChainID, valPubKey)
 
-			// Fetch the amount of coins staked
+			// Fetch the amount of coins hsnd
 			amount := viper.GetString(flagAmount)
 			coins, err := sdk.ParseCoins(amount)
 			if err != nil {

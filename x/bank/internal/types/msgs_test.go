@@ -54,11 +54,11 @@ func TestMsgSendValidation(t *testing.T) {
 func TestMsgSendGetSignBytes(t *testing.T) {
 	addr1 := sdk.AccAddress([]byte("input"))
 	addr2 := sdk.AccAddress([]byte("output"))
-	coins := sdk.NewCoins(sdk.NewInt64Coin("atom", 10))
+	coins := sdk.NewCoins(sdk.NewInt64Coin("hsn", 10))
 	var msg = NewMsgSend(addr1, addr2, coins)
 	res := msg.GetSignBytes()
 
-	expected := `{"type":"cosmos-sdk/MsgSend","value":{"amount":[{"amount":"10","denom":"atom"}],"from_address":"cosmos1d9h8qat57ljhcm","to_address":"cosmos1da6hgur4wsmpnjyg"}}`
+	expected := `{"type":"cosmos-sdk/MsgSend","value":{"amount":[{"amount":"10","denom":"hsn"}],"from_address":"hsn1d9h8qat574dkg6","to_address":"hsn1da6hgur4wsf3xufc"}}`
 	require.Equal(t, expected, string(res))
 }
 
@@ -217,14 +217,14 @@ func TestMsgMultiSendValidation(t *testing.T) {
 func TestMsgMultiSendGetSignBytes(t *testing.T) {
 	addr1 := sdk.AccAddress([]byte("input"))
 	addr2 := sdk.AccAddress([]byte("output"))
-	coins := sdk.NewCoins(sdk.NewInt64Coin("atom", 10))
+	coins := sdk.NewCoins(sdk.NewInt64Coin("hsn", 10))
 	var msg = MsgMultiSend{
 		Inputs:  []Input{NewInput(addr1, coins)},
 		Outputs: []Output{NewOutput(addr2, coins)},
 	}
 	res := msg.GetSignBytes()
 
-	expected := `{"type":"cosmos-sdk/MsgMultiSend","value":{"inputs":[{"address":"cosmos1d9h8qat57ljhcm","coins":[{"amount":"10","denom":"atom"}]}],"outputs":[{"address":"cosmos1da6hgur4wsmpnjyg","coins":[{"amount":"10","denom":"atom"}]}]}}`
+	expected := `{"type":"cosmos-sdk/MsgMultiSend","value":{"inputs":[{"address":"hsn1d9h8qat574dkg6","coins":[{"amount":"10","denom":"hsn"}]}],"outputs":[{"address":"hsn1da6hgur4wsf3xufc","coins":[{"amount":"10","denom":"hsn"}]}]}}`
 	require.Equal(t, expected, string(res))
 }
 

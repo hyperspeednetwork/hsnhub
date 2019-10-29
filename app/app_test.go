@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 	"github.com/tendermint/tendermint/libs/log"
-	"github.com/tendermint/tm-db"
+	db "github.com/tendermint/tm-db"
 
 	"github.com/hyperspeednetwork/hsnhub/codec"
 	"github.com/hyperspeednetwork/hsnhub/simapp"
@@ -17,7 +17,9 @@ import (
 func TestHSNdExport(t *testing.T) {
 	db := db.NewMemDB()
 	happ := NewHSNApp(log.NewTMLogger(log.NewSyncWriter(os.Stdout)), db, nil, true, 0)
-	setGenesis(happ)
+	if err := setGenesis(happ); err != nil {
+		t.Errorf("set genesis error by %s", err.Error())
+	}
 
 	// Making a new app object with the db, so that initchain hasn't been called
 	newGapp := NewHSNApp(log.NewTMLogger(log.NewSyncWriter(os.Stdout)), db, nil, true, 0)

@@ -172,8 +172,8 @@ func TestVestingAccountSend(t *testing.T) {
 	ctx := input.ctx.WithBlockHeader(abci.Header{Time: now})
 	endTime := now.Add(24 * time.Hour)
 
-	origCoins := sdk.NewCoins(sdk.NewInt64Coin("stake", 100))
-	sendCoins := sdk.NewCoins(sdk.NewInt64Coin("stake", 50))
+	origCoins := sdk.NewCoins(sdk.NewInt64Coin("hsn", 100))
+	sendCoins := sdk.NewCoins(sdk.NewInt64Coin("hsn", 50))
 
 	addr1 := sdk.AccAddress([]byte("addr1"))
 	addr2 := sdk.AccAddress([]byte("addr2"))
@@ -204,8 +204,8 @@ func TestVestingAccountReceive(t *testing.T) {
 	ctx := input.ctx.WithBlockHeader(abci.Header{Time: now})
 	endTime := now.Add(24 * time.Hour)
 
-	origCoins := sdk.NewCoins(sdk.NewInt64Coin("stake", 100))
-	sendCoins := sdk.NewCoins(sdk.NewInt64Coin("stake", 50))
+	origCoins := sdk.NewCoins(sdk.NewInt64Coin("hsn", 100))
+	sendCoins := sdk.NewCoins(sdk.NewInt64Coin("hsn", 50))
 
 	addr1 := sdk.AccAddress([]byte("addr1"))
 	addr2 := sdk.AccAddress([]byte("addr2"))
@@ -236,8 +236,8 @@ func TestDelegateCoins(t *testing.T) {
 	ctx := input.ctx.WithBlockHeader(abci.Header{Time: now})
 	endTime := now.Add(24 * time.Hour)
 
-	origCoins := sdk.NewCoins(sdk.NewInt64Coin("stake", 100))
-	delCoins := sdk.NewCoins(sdk.NewInt64Coin("stake", 50))
+	origCoins := sdk.NewCoins(sdk.NewInt64Coin("hsn", 100))
+	delCoins := sdk.NewCoins(sdk.NewInt64Coin("hsn", 50))
 
 	addr1 := sdk.AccAddress([]byte("addr1"))
 	addr2 := sdk.AccAddress([]byte("addr2"))
@@ -276,8 +276,8 @@ func TestUndelegateCoins(t *testing.T) {
 	ctx := input.ctx.WithBlockHeader(abci.Header{Time: now})
 	endTime := now.Add(24 * time.Hour)
 
-	origCoins := sdk.NewCoins(sdk.NewInt64Coin("stake", 100))
-	delCoins := sdk.NewCoins(sdk.NewInt64Coin("stake", 50))
+	origCoins := sdk.NewCoins(sdk.NewInt64Coin("hsn", 100))
+	delCoins := sdk.NewCoins(sdk.NewInt64Coin("hsn", 50))
 
 	addr1 := sdk.AccAddress([]byte("addr1"))
 	addr2 := sdk.AccAddress([]byte("addr2"))

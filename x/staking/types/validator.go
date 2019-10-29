@@ -342,7 +342,6 @@ func (v Validator) SetInitialCommission(commission Commission) (Validator, sdk.E
 	if err := commission.Validate(); err != nil {
 		return v, err
 	}
-
 	v.Commission = commission
 	return v, nil
 }

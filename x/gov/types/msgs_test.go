@@ -10,11 +10,11 @@ import (
 )
 
 var (
-	coinsPos         = sdk.NewCoins(sdk.NewInt64Coin(sdk.DefaultBondDenom, 1000))
-	coinsZero        = sdk.NewCoins()
-	coinsPosNotAtoms = sdk.NewCoins(sdk.NewInt64Coin("foo", 10000))
-	coinsMulti       = sdk.NewCoins(sdk.NewInt64Coin(sdk.DefaultBondDenom, 1000), sdk.NewInt64Coin("foo", 10000))
-	addrs            = []sdk.AccAddress{
+	coinsPos  = sdk.NewCoins(sdk.NewInt64Coin(sdk.DefaultBondDenom, 1000))
+	coinsZero = sdk.NewCoins()
+	// coinsPosNotAtoms = sdk.NewCoins(sdk.NewInt64Coin("foo", 10000))
+	coinsMulti = sdk.NewCoins(sdk.NewInt64Coin(sdk.DefaultBondDenom, 1000), sdk.NewInt64Coin("foo", 10000))
+	addrs      = []sdk.AccAddress{
 		sdk.AccAddress("test1"),
 		sdk.AccAddress("test2"),
 	}
@@ -64,7 +64,7 @@ func TestMsgDepositGetSignBytes(t *testing.T) {
 	msg := NewMsgDeposit(addr, 0, coinsPos)
 	res := msg.GetSignBytes()
 
-	expected := `{"type":"cosmos-sdk/MsgDeposit","value":{"amount":[{"amount":"1000","denom":"stake"}],"depositor":"cosmos1v9jxgu33kfsgr5","proposal_id":"0"}}`
+	expected := `{"type":"cosmos-sdk/MsgDeposit","value":{"amount":[{"amount":"1000","denom":"hsn"}],"depositor":"hsn1v9jxgu33kr0fn4","proposal_id":"0"}}`
 	require.Equal(t, expected, string(res))
 }
 

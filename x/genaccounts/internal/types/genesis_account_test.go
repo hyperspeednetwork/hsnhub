@@ -33,8 +33,8 @@ func TestGenesisAccountValidate(t *testing.T) {
 		},
 		{
 			"invalid vesting amount",
-			NewGenesisAccountRaw(addr, sdk.NewCoins(sdk.NewInt64Coin("stake", 50)),
-				sdk.NewCoins(sdk.NewInt64Coin("stake", 100)), 0, 0, "", ""),
+			NewGenesisAccountRaw(addr, sdk.NewCoins(sdk.NewInt64Coin("hsn", 50)),
+				sdk.NewCoins(sdk.NewInt64Coin("hsn", 100)), 0, 0, "", ""),
 			errors.New("vesting amount cannot be greater than total amount"),
 		},
 		{
@@ -47,8 +47,8 @@ func TestGenesisAccountValidate(t *testing.T) {
 		},
 		{
 			"invalid vesting times",
-			NewGenesisAccountRaw(addr, sdk.NewCoins(sdk.NewInt64Coin("stake", 50)),
-				sdk.NewCoins(sdk.NewInt64Coin("stake", 50)), 1654668078, 1554668078, "", ""),
+			NewGenesisAccountRaw(addr, sdk.NewCoins(sdk.NewInt64Coin("hsn", 50)),
+				sdk.NewCoins(sdk.NewInt64Coin("hsn", 50)), 1654668078, 1554668078, "", ""),
 			errors.New("vesting start-time cannot be before end-time"),
 		},
 		{

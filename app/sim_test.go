@@ -160,6 +160,7 @@ func appStateRandomizedFn(
 	return appState, accs, "simulation"
 }
 
+// nolint: vet
 func testAndRunTxs(app *HSNApp) []simulation.WeightedOperation {
 	cdc := MakeCodec()
 	ap := make(simulation.AppParams)

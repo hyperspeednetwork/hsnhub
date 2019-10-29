@@ -343,6 +343,7 @@ func DeductFees(supplyKeeper types.SupplyKeeper, ctx sdk.Context, acc exported.A
 	}
 
 	// verify the account has enough funds to pay for fees
+	//是否有足够的金额用于支付
 	_, hasNeg := coins.SafeSub(fees)
 	if hasNeg {
 		return sdk.ErrInsufficientFunds(

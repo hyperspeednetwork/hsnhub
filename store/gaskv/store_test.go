@@ -13,11 +13,11 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func newGasKVStore() types.KVStore {
-	meter := types.NewGasMeter(10000)
-	mem := dbadapter.Store{dbm.NewMemDB()}
-	return gaskv.NewStore(mem, meter, types.KVGasConfig())
-}
+// func newGasKVStore() types.KVStore {
+// 	meter := types.NewGasMeter(10000)
+// 	mem := dbadapter.Store{dbm.NewMemDB()}
+// 	return gaskv.NewStore(mem, meter, types.KVGasConfig())
+// }
 
 func bz(s string) []byte { return []byte(s) }
 

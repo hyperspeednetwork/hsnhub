@@ -15,11 +15,11 @@ var basic034Gov = []byte(`
         {
           "proposal_id": "1",
           "deposit": {
-            "depositor": "cosmos1grgelyng2v6v3t8z87wu3sxgt9m5s03xvslewd",
+            "depositor": "hsn1grgelyng2v6v3t8z87wu3sxgt9m5s03xnww7yf",
             "proposal_id": "1",
             "amount": [
               {
-                "denom": "uatom",
+                "denom": "uhsn",
                 "amount": "512000000"
               }
             ]
@@ -30,7 +30,7 @@ var basic034Gov = []byte(`
         {
           "proposal_id": "1",
           "vote": {
-            "voter": "cosmos1lktjhnzkpkz3ehrg8psvmwhafg56kfss5597tg",
+            "voter": "hsn1lktjhnzkpkz3ehrg8psvmwhafg56kfsst25epv",
             "proposal_id": "1",
             "option": "Yes"
           }
@@ -57,7 +57,7 @@ var basic034Gov = []byte(`
           "deposit_end_time": "2019-05-17T21:08:25.443199036Z",
           "total_deposit": [
             {
-              "denom": "uatom",
+              "denom": "uhsn",
               "amount": "512000000"
             }
           ],
@@ -68,7 +68,7 @@ var basic034Gov = []byte(`
       "deposit_params": {
         "min_deposit": [
           {
-            "denom": "uatom",
+            "denom": "hsn",
             "amount": "512000000"
           }
         ],
